@@ -12,7 +12,7 @@ urlpatterns = [
             pattern_name='about_urlpattern',
             permanent=False
         )
-    ),
+        ),
 
     url(r'^about/$',
         TemplateView.as_view(
