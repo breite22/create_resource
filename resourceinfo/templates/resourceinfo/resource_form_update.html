@@ -1,0 +1,22 @@
+{% extends 'resourceinfo/base.html' %}
+
+{% block title %}
+    Update Resource
+{% endblock %}
+
+{% block content %}
+   <div class="row">
+    <div class="offset-by-two eight columns">
+    <form
+        action="{{ resource.get_update_url }}"
+        method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button
+                class="button-primary"
+                type="submit">
+                Update Resource</button>
+    </form>
+    </div>
+  </div>
+{% endblock %}

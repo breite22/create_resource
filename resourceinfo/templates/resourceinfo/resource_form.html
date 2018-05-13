@@ -1,0 +1,21 @@
+{% extends 'resourceinfo/base.html' %}
+
+{% block title %}
+    Create Resource
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="offset-by-two eight columns">
+    <form
+        action="{% url 'resourceinfo_resource_create_urlpattern'%}"
+        method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button
+                class="button-primary"
+                type="submit">
+                Create Resource</button>
+    </form>
+
+{% endblock %}

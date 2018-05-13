@@ -1,0 +1,26 @@
+{% extends 'resourceinfo/base.html' %}
+
+{% block title %}
+    Delete Resource
+{% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="offset-by-two eight columns">
+      <form
+          action="{{ resource.get_delete_url }}"
+          method="post">
+        {% csrf_token %}
+        <p>
+          Are you sure you want to delete
+          resource {{ resource }}?
+        </p>
+        <a
+            href="{{ resource.get_absolute_url }}"
+            class="button button-primary">
+          Cancel</a>
+        <button type="submit">Delete Resource</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
