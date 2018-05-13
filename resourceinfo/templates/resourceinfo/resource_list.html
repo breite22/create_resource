@@ -1,0 +1,36 @@
+{% extends 'resourceinfo/base.html' %}
+
+{% block title %}
+    Resource List
+{% endblock %}
+
+{% block create_button %}
+    {% if perms.resourceinfo.add_resource %}
+    <a
+        href="{% url 'resourceinfo_resource_create_urlpattern'  %}"
+        class="button button-primary">
+      Create New Resource</a>
+    {% endif %}
+{% endblock %}
+
+{% block org_content %}
+  <h2>Resource List</h2>
+    {% if perms.resourceinfo.add_resource %}
+    <div class="mobile">
+      <a
+          href="{% url 'resourceinfo_resource_create_urlpattern' %}"
+          class="button button-primary">
+        Create New Resource</a>
+    </div>
+    {% endif %}
+  <ul>
+    {% for resource in resource_list %}
+      <li>
+        <a href="{{ resource.get_absolute_url }}">
+          {{ resource }}</a>
+      </li>
+    {% empty %}
+      <li><em>There are currently no resources available.</em></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

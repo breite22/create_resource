@@ -1,0 +1,37 @@
+{% extends 'resourceinfo/base.html' %}
+
+{% block title %}
+    Resource - {{ resource }}
+{% endblock %}
+
+{% block content %}
+<article>
+  <div class="row">
+  <div class="offset-by-two eight columns">
+    <h2>{{ resource }}</h2>
+     <ul class="inline">
+         {% if perms.resourceinfo.change_resource %}
+        <li>
+          <a href="{{ resource.get_update_url }}"
+          class="button">
+            Edit Resource</a></li>
+         {% endif %}
+         {% if perms.resourceinfo.delete_resource %}
+        <li>
+          <a href="{{ resource.get_delete_url }}"
+          class="button">
+            Delete Resource</a></li>
+        {% endif %}
+    </ul>
+
+    <section>
+        <h3>First Name</h3>
+        <p>{{ resource.resource_name }}</p>
+        <h3>Last Name</h3>
+        <p>{{ resource.content }}</p>
+    </section>
+
+  </div></div> <!-- row -->
+
+</article>
+{% endblock %}
