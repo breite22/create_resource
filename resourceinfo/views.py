@@ -26,6 +26,21 @@ class ResourceDetail(View):
             resource_id=requested_resource_id
         )
 
+        return render(
+            request,
+            'resourceinfo/resource_detail.html',
+        )
+
+# @require_authenticated_permission(
+#     'resourceinfo.view_resource')
+# class ResourceDetail(View):
+#
+#     def get(self, request, requested_resource_id):
+#         resource = get_object_or_404(
+#             Resource,
+#             resource_id=requested_resource_id
+#         )
+
 
 @require_authenticated_permission(
     'resourceinfo.add_resource')
@@ -47,3 +62,15 @@ class ResourceUpdate(UpdateView):
 class ResourceDelete(DeleteView):
     model = Resource
     success_url = reverse_lazy('resourceinfo_resource_list_urlpattern')
+# class ResourceDelete(View):
+#     def get(self, requested_resource_id):
+#         resource = get_object_or_404(
+#             Resource,
+#             resource_id=requested_resource_id
+#         )
+#         resource.delete()
+#         return redirect('resourceinfo_resource_list_urlpattern')
+
+
+
+

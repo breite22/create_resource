@@ -12,7 +12,7 @@ class Resource(models.Model):
 
     def get_absolute_url(self):
         return reverse('resourceinfo_resource_detail_urlpattern',
-                kwargs={'requested_course_id': self.resource_id}
+                kwargs={'requested_resource_id': self.resource_id}
                 )
 
     def get_update_url(self):
@@ -23,7 +23,7 @@ class Resource(models.Model):
     def get_delete_url(self):
         return reverse(
             'resourceinfo_resource_delete_urlpattern',
-            kwargs={'requested_course_id': self.resource_id}
+            kwargs={'requested_resource_id': self.resource_id}
         )
 
     class Meta:
