@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import include, url
 
 from .views import (
     ResourceList,
@@ -9,7 +9,6 @@ from .views import (
 )
 
 urlpatterns = [
-
     url(r'^resource/$',
         ResourceList.as_view(),
         name='resourceinfo_resource_list_urlpattern'

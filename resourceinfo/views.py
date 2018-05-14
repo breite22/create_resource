@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-# from django.urls import reverse_lazy
+
 from django.views import View
 from django.views.generic import ListView, CreateView, UpdateView
 
@@ -12,7 +12,7 @@ from .models import Resource
 @require_authenticated_permission(
     'resourceinfo.view_resource')
 class ResourceList(PageLinksMixin, ListView):
-    paginate_by = 25
+    paginate_by = 5
     model = Resource
 
 
@@ -27,8 +27,9 @@ class ResourceDetail(View):
         )
         return render(
             request,
-            'resourceinfo/resource_detail.html'
-        )
+            'resourceinfo/resource_detail.html',
+	        {'resource': resource,}
+         )
 
 
 @require_authenticated_permission(
