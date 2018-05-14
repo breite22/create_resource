@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^about/$',
         TemplateView.as_view(
             template_name='resourceinfo/about.html'),
-            name='about_urlpattern'
+        name='about_urlpattern'
         ),
 
     url(r'^login/$',
